@@ -7,8 +7,13 @@ namespace snakeGame
     public class MonoBehaviour
     {
         protected int squareSize = 31;
-        public int ScreenHeight = 600;
-        public int screenWidth = 800;
+        public int ScreenHeight;
+        public int screenWidth;
+
+        public MonoBehaviour(){
+            screenWidth = squareSize*30;
+            ScreenHeight = squareSize*20 ;
+        }
 
         
 

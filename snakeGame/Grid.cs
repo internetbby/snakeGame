@@ -23,14 +23,14 @@ namespace snakeGame
             for (int i = 0; i < numberOfCells.Y; i++)
             {
                 // Vertical
-                Raylib.DrawLine(0, i*squareSize, screenWidth, i*squareSize, Color.LIGHTGRAY);  
+                Raylib.DrawLine(0, i * squareSize, screenWidth, i * squareSize, Color.LIGHTGRAY);
 
             }
 
-            for (int i = 0; i < numberOfCells.X; i++)
+            for (int p = 0; p < numberOfCells.X; p++)
             {
-             
-
+                Raylib.DrawLine( p * squareSize, 0, p*squareSize, ScreenHeight , Color.LIGHTGRAY);    
+            
             }
         }
     }
