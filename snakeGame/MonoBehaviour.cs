@@ -8,11 +8,14 @@ namespace snakeGame
     {
         protected int squareSize = 31;
         public int ScreenHeight;
+
+        protected int originalFactorOfScreenWidth = 30; 
+        protected int originalFactorOfScreenHeight = 20; 
         public int screenWidth;
 
         public MonoBehaviour(){
-            screenWidth = squareSize*30;
-            ScreenHeight = squareSize*20 ;
+            screenWidth = squareSize* originalFactorOfScreenWidth;
+            ScreenHeight = squareSize*originalFactorOfScreenHeight ;
         }
 
         

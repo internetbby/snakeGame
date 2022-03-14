@@ -14,6 +14,7 @@ namespace snakeGame
 
             Snake snake = new Snake();
             Grid grid = new Grid();
+            Food food = new Food();
             snake.SetLength(0);
 
 
@@ -25,6 +26,7 @@ namespace snakeGame
 
                 snake.Draw();
                 grid.Draw();
+                food.Draw();
 
                 Raylib.EndDrawing();
             }
