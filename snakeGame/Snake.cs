@@ -2,53 +2,73 @@ using System;
 using Raylib_cs;
 using System.Numerics;
 using System.Timers;
+using System.Collections.Generic;
+
 
 namespace snakeGame
 {
-    public class Snake : Timer
+    public class Snake : InteractableObject
     {
-        private int snakeLength = 200;
-        private Vector2 position = new Vector2();
 
-        private int speed;
-
-        private string movementCall = "UP";
-        private Vector2 size = new Vector2();
-
-
-
+        private static string movementCall = "UP";
         private Color snakeColour = Color.BLUE;
+
+        private Food fruit;
+        private List<Rectangle> snakeLength = new List<Rectangle>();
+
+
 
         public Snake()
         {
-            position.X = screenWidth / 2;
-            position.Y = ScreenHeight / 2;
 
-            size.Y = squareSize;
-            size.X = size.Y;
+            snakeLength.Add(rectangle);
+            rectangle.x = screenWidth / 2;
+            rectangle.y = ScreenHeight / 2;
 
+            rectangle.width = squareSize;
+            rectangle.height = squareSize;
         }
+
+        public void SetFood(Food f)
+        {
+            fruit = f;
+        }
+
 
 
         public override void OnTimedEvent(object source, ElapsedEventArgs e) //ONTIMEDEVENT SNAKE DO THIS
         {
-            if(movementCall == "LEFT"){
-                position.X =  position.X - squareSize; 
+            if (movementCall == "LEFT")
+            {
+                rectangle.x = rectangle.x - squareSize;
             }
-            if(movementCall == "RIGHT"){
-                position.X =  position.X + squareSize; 
+            if (movementCall == "RIGHT")
+            {
+                rectangle.x = rectangle.x + squareSize;
             }
-            if(movementCall == "UP"){
-                position.Y =  position.Y - squareSize; 
+            if (movementCall == "UP")
+            {
+                rectangle.y = rectangle.y - squareSize;
             }
-            if(movementCall == "DOWN"){
-                position.Y =  position.Y + squareSize; 
+            if (movementCall == "DOWN")
+            {
+                rectangle.y = rectangle.y + squareSize;
             }
 
         }
 
 
-        public void movementControls()  //CHANGE THE INTERNAL MOVEMENT OF SNAKE
+        public void MakeSnakeLonger()
+        {
+            if (this.CollissionCheck(fruit) == true)
+            {
+                snakeLength.Add(rectangle);
+            }
+
+        }
+
+
+        public static void MovementControls()  //CHANGE THE INTERNAL MOVEMENT OF SNAKE
         {
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_A))
             {
@@ -66,20 +86,19 @@ namespace snakeGame
             {
                 movementCall = "DOWN";
             }
-            
+
 
         }
-
-        public void SetLength(int length)
-        {
-            snakeLength = length;
-        }
-
 
         public void Draw()
         {
-            movementControls();
-            Raylib.DrawRectangleV(position, size, snakeColour);
+            MovementControls();
+
+            for (int i = 0; i < snakeLength.Count; i++)
+            {
+                Raylib.DrawRectangleRec(rectangle, snakeColour);
+            }
+
         }
     }
 

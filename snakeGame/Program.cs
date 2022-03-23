@@ -6,7 +6,7 @@ namespace snakeGame
     {
         static void Main(string[] args)
         {
-           MonoBehaviour mono = new MonoBehaviour();
+            MonoBehaviour mono = new MonoBehaviour();
 
 
             Raylib.InitWindow(mono.screenWidth, mono.ScreenHeight, "snake game");
@@ -15,8 +15,8 @@ namespace snakeGame
             Snake snake = new Snake();
             Grid grid = new Grid();
             Food food = new Food();
-            snake.SetLength(0);
-
+            snake.SetFood(food);
+            food.SetSnake(snake);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -27,6 +27,7 @@ namespace snakeGame
                 snake.Draw();
                 grid.Draw();
                 food.Draw();
+                //snake.CollissionCheck(food);
 
                 Raylib.EndDrawing();
             }

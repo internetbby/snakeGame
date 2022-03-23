@@ -12,19 +12,20 @@ namespace snakeGame
 
         public void setTimer( int speed){
             aTimer.Interval = speed; 
-        }
-        public Timer()
-        {
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             aTimer.Interval = 500;
             aTimer.Enabled = true;
+
         }
 
+        public Timer(){
+            setTimer(50);
+        }
 
 
         public virtual void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-
+            
         }
 
     }

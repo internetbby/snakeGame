@@ -5,34 +5,55 @@ using Raylib_cs;
 
 namespace snakeGame
 {
-    public class Food : Timer
+    public class Food : InteractableObject
     {
         private Random generator = new Random();
         private int r;
 
-        private Vector2 size = new Vector2();
-
-        private Vector2 position = new Vector2();
-
-
+        private Snake snake;
         public Food()
         {
-            size.Y = squareSize;
-            size.X = squareSize;
+            rectangle.width = squareSize;
+            rectangle.height = squareSize;
 
-            position.X = 30 / squareSize;
-            position.Y = 20 / squareSize;
+
+            r = generator.Next(20);
+
+            rectangle.y = r / squareSize;
+
+
+
+            r = generator.Next(30);
+            rectangle.x = r / squareSize;
+        }
+
+        public void SetSnake(Snake s)
+        {
+            snake = s;
         }
 
         public override void OnTimedEvent(object source, ElapsedEventArgs e) //ONTIMEDEVENT SNAKE DO THIS
         {
-            System.Console.WriteLine("time");
+            if (this.CollissionCheck(snake) == true)
+            {
+                r = generator.Next(20);
+                rectangle.y = r * squareSize;
+
+                r = generator.Next(30);
+                rectangle.x = r * squareSize;
+
+            }
+
+
+
+
+
         }
 
 
         public void Draw()
         {
-            Raylib.DrawRectangleV(position, size, Color.BLACK);
+            Raylib.DrawRectangleRec(rectangle, Color.BLACK);
         }
     }
 }
