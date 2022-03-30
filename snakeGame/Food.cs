@@ -11,20 +11,18 @@ namespace snakeGame
         private int r;
 
         private Snake snake;
+
+
         public Food()
         {
             rectangle.width = squareSize;
             rectangle.height = squareSize;
 
-
             r = generator.Next(20);
-
-            rectangle.y = r / squareSize;
-
-
+            rectangle.y = r * squareSize;
 
             r = generator.Next(30);
-            rectangle.x = r / squareSize;
+            rectangle.x = r * squareSize;
         }
 
         public void SetSnake(Snake s)
@@ -34,7 +32,15 @@ namespace snakeGame
 
         public override void OnTimedEvent(object source, ElapsedEventArgs e) //ONTIMEDEVENT SNAKE DO THIS
         {
-            if (this.CollissionCheck(snake) == true)
+
+
+
+        }
+
+
+        public void ChangePlace()
+        {
+            if (CollissionCheck(snake) == true)
             {
                 r = generator.Next(20);
                 rectangle.y = r * squareSize;
@@ -46,14 +52,13 @@ namespace snakeGame
 
 
 
-
-
         }
-
 
         public void Draw()
         {
             Raylib.DrawRectangleRec(rectangle, Color.BLACK);
+
+            ChangePlace();
         }
     }
 }

@@ -55,14 +55,21 @@ namespace snakeGame
                 rectangle.y = rectangle.y + squareSize;
             }
 
+            MakeSnakeLonger();
+
+
         }
 
 
         public void MakeSnakeLonger()
         {
-            if (this.CollissionCheck(fruit) == true)
+            if (CollissionCheck(fruit) == true)
             {
-                snakeLength.Add(rectangle);
+
+                snakeLength.Add(new Rectangle(100,100,squareSize,squareSize)); 
+
+                System.Console.WriteLine(snakeLength.Count);
+                
             }
 
         }
@@ -97,6 +104,7 @@ namespace snakeGame
             for (int i = 0; i < snakeLength.Count; i++)
             {
                 Raylib.DrawRectangleRec(rectangle, snakeColour);
+                
             }
 
         }

@@ -10,9 +10,7 @@ namespace snakeGame
 
         protected Vector2 numberOfCells = new Vector2();
 
-        private Snake snake = new Snake();
-
-        private Food fruit = new Food();
+ 
 
         public Grid()
         {
@@ -21,16 +19,6 @@ namespace snakeGame
 
         }
 
-        /*public bool CollissionCheck()
-        {
-            bool collissionX = snake.position.X + snake.size.X >= fruit.position.X && fruit.position.X + fruit.size.X >= snake.position.X;
-            bool collissionY = snake.position.Y + snake.size.Y >= fruit.position.Y && fruit.position.Y + fruit.size.Y >= snake.position.Y;
-
-
-
-            return collissionY && collissionX;
-        }
-*/ //Add dis in interactable class
 
 
         public void Draw()

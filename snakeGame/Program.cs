@@ -23,11 +23,13 @@ namespace snakeGame
                 Raylib.BeginDrawing();
 
                 Raylib.ClearBackground(Color.WHITE);
+                snake.CollissionCheck(food);
+                food.CollissionCheck(snake);
 
                 snake.Draw();
                 grid.Draw();
                 food.Draw();
-                //snake.CollissionCheck(food);
+               
 
                 Raylib.EndDrawing();
             }
