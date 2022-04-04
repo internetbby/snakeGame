@@ -7,10 +7,10 @@ namespace snakeGame
     public class MonoBehaviour
     {
         protected int squareSize = 31;
-        public int ScreenHeight;
+        protected int ScreenHeight;
 
-        protected static int originalFactorOfScreenWidth = 30; 
-        protected static int originalFactorOfScreenHeight = 20; 
+        private static int originalFactorOfScreenWidth = 30; 
+        private static int originalFactorOfScreenHeight = 20; 
         public int screenWidth;
 
         public MonoBehaviour(){
@@ -18,7 +18,13 @@ namespace snakeGame
             ScreenHeight = squareSize*originalFactorOfScreenHeight ;
         }
 
-        
+        public int GetScreenHeight(){
+            return ScreenHeight;
+        }
+
+        public int GetScreenWidth(){
+            return screenWidth;
+        }
 
 
     }

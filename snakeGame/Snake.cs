@@ -16,6 +16,8 @@ namespace snakeGame
         private Food fruit;
         private List<Rectangle> snakeLength = new List<Rectangle>();
 
+        private bool isOutside = false; 
+
 
 
         public Snake()
@@ -61,6 +63,15 @@ namespace snakeGame
         }
 
 
+        public bool isOutsideOfLvl(){
+            if(rectangle.x < 0 || rectangle.x > screenWidth || rectangle.y < 0 || rectangle.y > ScreenHeight  ){
+                return this.isOutside = true; 
+            }
+            else{
+                return this.isOutside = false; 
+            }
+        }
+
         public void MakeSnakeLonger()
         {
             if (CollissionCheck(fruit) == true)
@@ -75,7 +86,7 @@ namespace snakeGame
         }
 
 
-        public static void MovementControls()  //CHANGE THE INTERNAL MOVEMENT OF SNAKE
+        private static void MovementControls()  //CHANGE THE INTERNAL MOVEMENT OF SNAKE
         {
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_A))
             {

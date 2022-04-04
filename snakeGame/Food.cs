@@ -30,14 +30,6 @@ namespace snakeGame
             snake = s;
         }
 
-        public override void OnTimedEvent(object source, ElapsedEventArgs e) //ONTIMEDEVENT SNAKE DO THIS
-        {
-
-
-
-        }
-
-
         public void ChangePlace()
         {
             if (CollissionCheck(snake) == true)

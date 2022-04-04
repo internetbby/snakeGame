@@ -9,7 +9,7 @@ namespace snakeGame
             MonoBehaviour mono = new MonoBehaviour();
 
 
-            Raylib.InitWindow(mono.screenWidth, mono.ScreenHeight, "snake game");
+            Raylib.InitWindow(mono.GetScreenWidth(), mono.GetScreenHeight(), "snake game");
 
 
             Snake snake = new Snake();
@@ -20,19 +20,33 @@ namespace snakeGame
 
             while (!Raylib.WindowShouldClose())
             {
-                Raylib.BeginDrawing();
+                if (snake.isOutsideOfLvl() == false)
+                {
+                    Raylib.BeginDrawing();
 
-                Raylib.ClearBackground(Color.WHITE);
-                snake.CollissionCheck(food);
-                food.CollissionCheck(snake);
+                    Raylib.ClearBackground(Color.WHITE);
+                    snake.CollissionCheck(food);
+                    food.CollissionCheck(snake);
 
-                snake.Draw();
-                grid.Draw();
-                food.Draw();
-               
+                    snake.Draw();
+                    grid.Draw();
+                    food.Draw();
 
-                Raylib.EndDrawing();
+
+                    Raylib.EndDrawing();
+                }
+                else if (snake.isOutsideOfLvl() == true)
+                {
+                    Raylib.BeginDrawing();
+
+                    Raylib.ClearBackground(Color.LIGHTGRAY);
+                    Raylib.DrawText("GAME LOST", Raylib.GetScreenWidth()/4, Raylib.GetScreenHeight()/3          , 100, Color.BLACK);
+
+                    Raylib.EndDrawing();
+                }
             }
+
         }
     }
 }
+

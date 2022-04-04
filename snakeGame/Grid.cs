@@ -8,7 +8,7 @@ namespace snakeGame
     {
 
 
-        protected Vector2 numberOfCells = new Vector2();
+        private Vector2 numberOfCells = new Vector2();
 
  
 
@@ -37,9 +37,5 @@ namespace snakeGame
             }
         }
 
-        public Vector2 GetScreenCoordsOfGrid(int x, int y)
-        {
-            return new Vector2(x * squareSize, y * squareSize);
-        }
     }
 }

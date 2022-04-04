@@ -1,0 +1,135 @@
+<Project>
+  <Name>snakeGame</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>MonoBehaviour</Name>
+        <Access>Public</Access>
+        <Location left="688" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected int squareSize</Member>
+        <Member type="Field">protected int screenHeight</Member>
+        <Member type="Field">protected int screenWidth</Member>
+        <Member type="Field">private int originalFactorOfScreenWidth</Member>
+        <Member type="Field">private int originalFactorOfScreenHeight</Member>
+        <Member type="Method">public void MonoBehaviour()</Member>
+        <Member type="Method">public int GetScreenHeight()</Member>
+        <Member type="Method">public int GetScreenWidth()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Timer</Name>
+        <Access>Public</Access>
+        <Location left="688" top="317" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Timer aTimer</Member>
+        <Member type="Method">public void setTimer(int speed)</Member>
+        <Member type="Method">public void Timer()</Member>
+        <Member type="Method">public void OnTimedEvent(object source, ElapsedEventsArgs e)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>InteractableObject</Name>
+        <Access>Public</Access>
+        <Location left="688" top="605" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected Rectangle rectangle</Member>
+        <Member type="Method">public bool CollissionCheck(InteractableObject other)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Grid</Name>
+        <Access>Public</Access>
+        <Location left="462" top="317" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Vector2 numberOfCells</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void Grid()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Snake</Name>
+        <Access>Public</Access>
+        <Location left="527" top="912" />
+        <Size width="162" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static string movementCall</Member>
+        <Member type="Field">Color snakeColour</Member>
+        <Member type="Field">Food fruit</Member>
+        <Member type="Field">List&lt;Rectangle&gt; snakeLength</Member>
+        <Member type="Field">bool isOutside</Member>
+        <Member type="Method">public void Snake()</Member>
+        <Member type="Method">public void SetFood(Food f)</Member>
+        <Member type="Method">public void OnTimedEvent(object source, ElapsedEventArgs e)</Member>
+        <Member type="Method">public bool isOutsideOfLvl()</Member>
+        <Member type="Method">public void MakeSnakeLonger()</Member>
+        <Member type="Method">private void MovementControls()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Food</Name>
+        <Access>Public</Access>
+        <Location left="774" top="924" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Random generator</Member>
+        <Member type="Field">private int r</Member>
+        <Member type="Field">private Snake snake</Member>
+        <Member type="Method">public void Food()</Member>
+        <Member type="Method">public void SetSnake(Snake s)</Member>
+        <Member type="Method">public void ChangePlace()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

@@ -7,10 +7,6 @@ namespace snakeGame
     public class InteractableObject : Timer
     {
 
-        protected Vector2 position = new Vector2();
-
-        protected Vector2 size = new Vector2();
-
         protected Rectangle rectangle = new Rectangle();
 
         public bool CollissionCheck(InteractableObject other)
